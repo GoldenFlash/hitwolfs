@@ -101,7 +101,8 @@
     </div>
 </body>
 <script type="text/javascript">
-var handle = document.querySelector("#handle");
+window.onload = function(){
+    var handle = document.querySelector("#handle");
 // 存放狼图片的div
 
 var wolfsDiv = document.querySelector("#wolfs");
@@ -121,7 +122,7 @@ var infoshow = document.getElementById("infoshow");
 // var info = document.getElementById("info");
 var result = document.getElementById("result");
 var wolfStartArr = [
-	{ left: "98px", top: "115px" },
+    { left: "98px", top: "115px" },
     { left: "17px", top: "160px" },
     { left: "15px", top: "220px" },
     { left: "30px", top: "293px" },
@@ -134,9 +135,9 @@ var wolfStartArr = [
 var progressWidth = countDownDiv.offsetWidth;
 // 给按钮添加点击事件
 var run = function() {
-	scoreDiv.innerHTML = 0;
-	gameOverDiv.style.display = "none"
-	infoshow.style.display = "none";
+    scoreDiv.innerHTML = 0;
+    gameOverDiv.style.display = "none"
+    infoshow.style.display = "none";
     //隐藏菜单
     menu.style.display = "none";
     // 改变进度条
@@ -151,7 +152,7 @@ var run = function() {
             clearInterval(creatWolfTimer);
             // 显示游戏结束div
           setTimeout(function(){
-          	  gameOverDiv.style.display = "block";
+              gameOverDiv.style.display = "block";
             // var sort = document.querySelector("#scoring").value();
              var sort = Number(scoreDiv.innerHTML);
             result.innerHTML ="得分" + sort ;
@@ -210,7 +211,7 @@ var run = function() {
             wolf.onclick = function() {
                 // 如果bol等于true，就不让下面的程序执行
                 if(bol == true){
-                	return;
+                    return;
                 }
                 bol = true;
                 clearInterval(wolf.upFn);
@@ -240,7 +241,7 @@ var run = function() {
         }
 
         arrIndex++;
-    }, 200)
+    }, 400)
 
 }
 
@@ -254,18 +255,19 @@ document.onmousedown = function(e) {
     ev.preventDefault();
 };
 handle.onclick=function(){
-	var info = document.createElement('div');
-	info.innerHTML = "打灰太狼加分，打小灰灰减分";
-	
-	infoshow.appendChild(info);
+    var info = document.createElement('div');
+    info.innerHTML = "打灰太狼加分，打小灰灰减分";
+    
+    infoshow.appendChild(info);
 
 };
 startBtn.onclick = function(){
-	run();
+    run();
 }
 var replay = document.querySelector("#replay");
 replay.onclick = function(){
-	run();
+    run();
+}
 }
 </script>
 
